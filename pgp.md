@@ -1,7 +1,7 @@
 ---
 layout: page
 title: OpenPGP 公钥
-ref: contact
+ref: pgp
 order: 1
 ---
 
