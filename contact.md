@@ -1,11 +1,15 @@
 ---
 layout: page
-title: Contact
+title: 联系方式
 tagline: Create a contact form and you are good to go
 ref: contact
 order: 1
 ---
 
-Jekyll is a great tool to create static sites but with static site, there's no backend to send your data to: that is why you need a third part service.
+电子邮箱：haksrpd@outlook.com
 
-[Go to the Home Page]({{ '/' | absolute_url }})
+OpenPGP 公钥指纹：29E5 0791 9AAA 2EBA C209  658E A79D 5869 700B C8BE
+
+您可以从 OpenPGP 密钥服务器上下载到我的公钥。
+
+[当然，也可以直接从这里获得我的 OpenPGP 公钥。](pgp.html)
