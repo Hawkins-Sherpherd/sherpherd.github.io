@@ -18,15 +18,21 @@ SERNET-IX is a group of IXP concentrates DN42 BGP session but not data plane. Di
 
 ### SERNET-IX 网络信息（SERNET-IX Network Information）
 ---
+[SERNET-IX 参与者信息](Participants_cn.html)
+
+[Information of SERNET-IX Participants](Participants_en.html)
+
 AS Number: 4242422245
 
-Communities:
+Supported Communities:
   * 65535:666 (Well-Known Community, suggested. Blackhole, support only /32 for IPv4 and IPv6 address block equals to or smaller than /64)
   * 4242422245:666 (Blackhole, support only /32 for IPv4 and IPv6 address block equals to or smaller than /64)
 
+Session Establishment: Separate IPv4 & IPv6 session over IXP network address
+
 ## Operation Region
 *   #### China Mainland
-    * Status: Under Construction
+    * Status: Testing
     * Time of Open peering: TBD
     * Peering Policy: Only accept participants have existing DN42 node in China Mainland
     * IPv6 Network Block: fd06:7bc4:e3fa:7940::/64
@@ -35,7 +41,7 @@ Communities:
     * L2VPN Technology: Zerotier
   
 *  #### East Asia
-    * Status: Under Construction
+    * Status: Testing
     * Time of Open peering: TBD
     * Peering Policy: Open
     * IPv6 Network Block: fd06:7bc4:e3fa:7941::/64
@@ -63,6 +69,6 @@ Communities:
 
 ### SERNET-IX 服务协议（The Service Agreement of SERNET-IX）
 ---
-SERNET-IX 服务协议
+[SERNET-IX 服务协议](Agreement_SERNET_IX_cn.html)
 
 [The Service Aggrement of SERNET-IX](Agreement_SERNET_IX_en.html)

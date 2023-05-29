@@ -7,16 +7,18 @@ order: 3
 
 **电子邮箱：**haksrpd@outlook.com
 
-**Email:** haksrpd@outlook.com
-
 **PGP 公钥指纹：**29E5 0791 9AAA 2EBA C209  658E A79D 5869 700B C8BE
-
-**PGP public key fingerprint:** 29E5 0791 9AAA 2EBA C209  658E A79D 5869 700B C8BE
 
 您可以从 OpenPGP 密钥服务器上下载到我的公钥。
 
-You can download my public key from Keyservers.
-
 [当然，也可以直接从这里获得我的 OpenPGP 公钥。](pgp.html)
 
-[Of course, you can also get it there directly.](pgp.html)
+---
+
+**Email:** haksrpd@outlook.com
+
+**PGP public key fingerprint:** 29E5 0791 9AAA 2EBA C209  658E A79D 5869 700B C8BE
+
+You can download my public key from Keyservers.
+
+[You can also get it there directly.](pgp.html)

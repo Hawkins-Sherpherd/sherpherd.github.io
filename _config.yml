@@ -19,7 +19,7 @@ theme: # leave it empty
 author: Hawkins Sherpherd
 image: /thumbnail-jumbo.png
 twitter:
-  username: Hawkins-Sherpherd
+  username: HawkinsSherphed
 
 plugins:
   - jekyll-target-blank

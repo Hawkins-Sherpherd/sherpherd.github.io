@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Agreement of SERNET-IX
+title: The Service Agreement of SERNET-IX
 ---
 
 # Introduction
@@ -12,7 +12,7 @@ SERNET-IX is operated by Hawkins Sherpherd. SERNET-IX itself DOES NOT provide tr
 The requirements for participants to join SERNET-IX are as follows:
 * a. Participants MUST be one of DN42 member.
 * b. Participants MUST have at least one valid AS number in DN42 registry.
-* c. Participants MUST provide sufficient information to prove the ownership to DN42 network resource they claimed. (For example, signing text with appropriate key)
+* c. Participants MUST able to provide sufficient information to prove the ownership to DN42 network resource they claimed. (For example, signing text with appropriate key)
 * d. Participants should have DN42 network connectivity independent of SERNET-IX.
 * e. Participants should be self-sufficient. For example, operating authoritative DNS of owned domain and reverse zone on their own infrastructure.
 
@@ -95,9 +95,10 @@ None yet.
 
 # Application
 ---
-If you have decided to join SERNET-IX, please send an e-mail to [me](contact.html) with required information below. I will send you information on how to make the connection after receiving your mail. If you have any further questions, please feel free to [contact](contact.html).
+If you have decided to join SERNET-IX, please send an e-mail to [me](contact.html) with required information below. I will send you information on how to make the connection after receiving your mail. If you have any further questions, please feel free to [contact](contact.html). In some occasion I may require you to provide additional information to prove the ownership to the DN42 network resource you claimed.
 
 The Information required for Application:
 * Your AS Number (Must be a valid DN42 AS Number)
 * Node Identifier (A name of your node which peer with SERNET-IX, determined by yourself.)
+* The SERNET-IX operation region you want to connect to (The information of operational region is in "[SERNET-IX](ix.html)")
 * Zerotier Node ID (Only required when the operating region you want to join using Zerotier)

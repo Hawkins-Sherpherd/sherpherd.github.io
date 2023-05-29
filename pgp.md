@@ -5,9 +5,11 @@ ref: pgp
 order: 4
 ---
 
-您可以从这里直接复制并导入我的公钥：
+您可以从这里直接复制并导入我的公钥。
 
-You can directly copy and import my public key here: 
+You can directly copy and import my public key here.
+
+---
 
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
