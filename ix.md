@@ -11,6 +11,8 @@ SERNET-IX 是在世界范内运作的一组致力于集中 DN42 BGP 会话（而
 
 SERNET-IX is a group of IXP concentrates DN42 BGP session but not data plane. Different from traditional IXP, SERNET-IX only concentrates BGP sessions. With the P2P L2VPN technology (N2N, Zerotier, etc.), SERNET-IX make whole Internet a big IX switch.
 
+[Maintainance information of SERNET-IX](https://maintainance.sherpherd.top)
+
 ### 加入 SERNET-IX 的好处（The Benifit of joining in SERNET-IX）
 ---
   * 只需和 Route Server 进行 Peer，便可获得许多来自其它参与者的路由。（One BGP session to Route Server, many routes from other participants.）
