@@ -32,7 +32,26 @@ Supported Communities:
 
 Session Establishment: Separate IPv4 & IPv6 session over IXP network address
 
-## Operation Region
+### Route Server Instance Map
+---
+<div id="map"></div>
+<script>
+    var map = new L.Map("map", {
+        center: new L.LatLng(34.307144, -226.40625),
+        zoom: 2,
+    });
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    var marker_dg = L.marker([23.019076, -246.258545]).addTo(map).bindPopup("<br><b>rs1.cn.ix.sernet.dn42</b><br><b>Location:</b> Dongguan, Guangdong Province, China<br><br><b>Region:</b>China Mainland<br>");
+    var marker_hk = L.marker([22.248429, -245.808105]).addTo(map).bindPopup("<br><b>rs1.hk.ix.sernet.dn42</b><br><b>Location:</b> Hong Kong, China<br><br><b>Region:</b>East Asia<br>");
+    var marker_kr = L.marker([37.527154, -232.998047]).addTo(map).bindPopup("<br><b>rs2.kr.ix.sernet.dn42</b><br><b>Location:</b> Seoul, South Korea<br><br><b>Region:</b>East Asia<br>");
+    var marker_us1 = L.marker([33.979809, -118.190918]).addTo(map).bindPopup("<br><b>rs1.us.ix.sernet.dn42</b><br><b>Location:</b> Los Angeles, CA, United States<br><br><b>Region:</b>North America<br>");
+    var marker_de = L.marker([50.092393, -351.298828]).addTo(map).bindPopup("<br><b>rs1.de.ix.sernet.dn42</b><br><b>Location:</b> Frankfurt, Germany<br><br><b>Region:</b>Europe<br>");
+</script>
+
+### Operation Region
 *   #### China Mainland
     * Status: Testing
     * Time of Open peering: TBD
