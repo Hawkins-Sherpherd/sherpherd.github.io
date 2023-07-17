@@ -54,7 +54,7 @@ Session Establishment: Separate IPv4 & IPv6 session over IXP network address
 ### Operation Region
 *   #### China Mainland
     * Status: Under Construction
-    * Time of Open peering: TBD
+    * RFS: TBD
     * Peering Policy: Only accept participants have existing DN42 node in China Mainland
     * IPv6 Network Block: fd06:7bc4:e3fa:7940::/64
     * IPv4 Network Block: 172.16.128.0/24
@@ -63,7 +63,7 @@ Session Establishment: Separate IPv4 & IPv6 session over IXP network address
   
 *  #### East Asia
     * Status: Under Construction
-    * Time of Open peering: TBD
+    * RFS: TBD
     * Peering Policy: Open
     * IPv6 Network Block: fd06:7bc4:e3fa:7941::/64
     * IPv4 Network Block: 172.16.129.0/24
@@ -72,7 +72,7 @@ Session Establishment: Separate IPv4 & IPv6 session over IXP network address
 
 *  #### North America
     * Status: Under Construction
-    * Time of Open peering: TBD
+    * RFS: TBD
     * Peering Policy: Open
     * IPv6 Network Block: fd06:7bc4:e3fa:7942::/64
     * IPv4 Network Block: 172.16.130.0/24
@@ -81,7 +81,7 @@ Session Establishment: Separate IPv4 & IPv6 session over IXP network address
 
 *  #### Europe
     * Status: Under Construction
-    * Time of Open peering: TBD
+    * RFS: TBD
     * Peering Policy: Open
     * IPv6 Network Block: fd06:7bc4:e3fa:7943::/64
     * IPv4 Network Block: 172.16.131.0/24
