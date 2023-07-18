@@ -62,8 +62,8 @@ Session Establishment: Separate IPv4 & IPv6 session over IXP network address
     * L2VPN Technology: Zerotier
   
 *  #### East Asia
-    * Status: Under Construction
-    * RFS: TBD
+    * Status: Operational
+    * RFS: 2023/07/19
     * Peering Policy: Open
     * IPv6 Network Block: fd06:7bc4:e3fa:7941::/64
     * IPv4 Network Block: 172.16.129.0/24
