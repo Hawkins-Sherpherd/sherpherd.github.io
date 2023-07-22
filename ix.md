@@ -11,7 +11,11 @@ SERNET-IX 是在世界范内运作的一组致力于集中 DN42 BGP 会话（而
 
 SERNET-IX is a group of IXP concentrates DN42 BGP session but not data plane. Different from traditional IXP, SERNET-IX only concentrates BGP sessions. With the P2P L2VPN technology (N2N, Zerotier, etc.), SERNET-IX make whole Internet a big IX switch.
 
-[maintenance information of SERNET-IX](https://maintenance.sherpherd.top)
+由于资源的限制，所有区域的 Route Server 实例都会运行在具有“Service Hosting”能力的节点上，请放心，到达 Route Server 的延迟并不影响你到达其它参与者路由器的延迟。
+
+Due to the limit of resource, all Route Server Instance in all regions will run on those nodes which have "Service Hosting" ability, don't worry, the latency to Route Server does not affect latency to other participants' routers.
+
+[Maintenance information of SERNET-IX](https://maintenance.sherpherd.top)
 
 ### 加入 SERNET-IX 的好处（The Benifit of joining in SERNET-IX）
 ---
@@ -32,7 +36,7 @@ Supported Communities:
 
 Session Establishment: Separate IPv4 & IPv6 session over IXP network address
 
-### Route Server Instance Map
+### Service Map
 ---
 <div id="map"></div>
 <script>
@@ -44,11 +48,11 @@ Session Establishment: Separate IPv4 & IPv6 session over IXP network address
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
-    var marker_dg = L.marker([23.019076, -246.258545]).addTo(map).bindPopup("<br><b>rs1.cn.ix.sernet.dn42</b><br><b>Location:</b> Dongguan, Guangdong Province, China<br><br><b>Region:</b>China Mainland<br>");
-    var marker_hk = L.marker([22.248429, -245.808105]).addTo(map).bindPopup("<br><b>rs1.hk.ix.sernet.dn42</b><br><b>Location:</b> Hong Kong, China<br><br><b>Region:</b>East Asia<br>");
-    var marker_kr = L.marker([37.527154, -232.998047]).addTo(map).bindPopup("<br><b>rs2.kr.ix.sernet.dn42</b><br><b>Location:</b> Seoul, South Korea<br><br><b>Region:</b>East Asia<br>");
-    var marker_us1 = L.marker([33.979809, -118.190918]).addTo(map).bindPopup("<br><b>rs1.us.ix.sernet.dn42</b><br><b>Location:</b> Los Angeles, CA, United States<br><br><b>Region:</b>North America<br>");
-    var marker_de = L.marker([50.092393, -351.298828]).addTo(map).bindPopup("<br><b>rs1.de.ix.sernet.dn42</b><br><b>Location:</b> Frankfurt, Germany<br><br><b>Region:</b>Europe<br>");
+    var marker_dg = L.marker([23.019076, -246.258545]).addTo(map).bindPopup("<br><b>Dongguan, Guangdong Province, China</b><br>Service Hosting<br>Direct Peering<br>SERNET-IX Participant (China Mainland)<br><br>");
+    var marker_hk = L.marker([22.248429, -245.808105]).addTo(map).bindPopup("<br><b>Hong Kong, China</b><br>Service Hosting<br>Direct Peering<br>SERNET-IX Participant (East Asia)<br><br>");
+    var marker_kr = L.marker([37.527154, -232.998047]).addTo(map).bindPopup("<br><b>Seoul, South Korea</b><br>Service Hosting<br>Direct Peering<br>SERNET-IX Participant (East Asia)<br><br>");
+    var marker_us1 = L.marker([33.979809, -118.190918]).addTo(map).bindPopup("<br><b>Los Angeles, CA, United States</b><br>Direct Peering<br>SERNET-IX Participant (North America)<br><br>");
+    var marker_de = L.marker([50.092393, -351.298828]).addTo(map).bindPopup("<br><b>Frankfurt, Germany</b><br>Direct Peering<br>SERNET-IX Participant (Europe)<br><br>");
 </script>
 
 ### Operation Region

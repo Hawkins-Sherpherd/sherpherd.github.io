@@ -36,13 +36,13 @@ title: 参与者
         <td rowspan = "2">SERNET-DN42</td>
         <td rowspan = "2">4242423947</td>
         <td>hk1.sherpherd.dn42</td>
-        <td>172.16.129.4</td>
-        <td>fd06:7bc4:e3fa:7941::4</td>
+        <td>172.16.129.3</td>
+        <td>fd06:7bc4:e3fa:7941::3</td>
     </tr>
     <tr>
         <td>kr-sel1.sherpherd.dn42</td>
-        <td>172.16.129.3</td>
-        <td>fd06:7bc4:e3fa:7941::3</td>
+        <td>172.16.129.4</td>
+        <td>fd06:7bc4:e3fa:7941::4</td>
     </tr>
 </table>
 
