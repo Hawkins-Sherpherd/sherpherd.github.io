@@ -31,7 +31,7 @@ Due to the limit of resource, all Route Server Instance in all regions will run 
 AS Number: 4242422245
 
 Supported Communities:
-  * 65535:666 (Well-Known Community, suggested. Blackhole, support only /32 for IPv4 and IPv6 address block equals to or smaller than /64)
+  * 65535:666 (Well-Known Community, suggested. Blackhole, support only /32 for IPv4 and /64 for IPv6)
   * 4242422245:666 (Blackhole, support only /32 for IPv4 and /64 for IPv6)
 
 Session Establishment: Separate IPv4 & IPv6 session over IXP network address
