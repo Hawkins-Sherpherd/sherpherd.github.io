@@ -32,7 +32,7 @@ AS Number: 4242422245
 
 Supported Communities:
   * 65535:666 (Well-Known Community, suggested. Blackhole, support only /32 for IPv4 and IPv6 address block equals to or smaller than /64)
-  * 4242422245:666 (Blackhole, support only /32 for IPv4 and IPv6 address block equals to or smaller than /64)
+  * 4242422245:666 (Blackhole, support only /32 for IPv4 and /64 for IPv6)
 
 Session Establishment: Separate IPv4 & IPv6 session over IXP network address
 
@@ -49,10 +49,10 @@ Session Establishment: Separate IPv4 & IPv6 session over IXP network address
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
     var marker_dg = L.marker([23.019076, -246.258545]).addTo(map).bindPopup("<br><b>Dongguan, Guangdong Province, China</b><br>Service Hosting<br>Direct Peering<br>SERNET-IX Participant (China Mainland)<br><br>");
-    var marker_hk = L.marker([22.248429, -245.808105]).addTo(map).bindPopup("<br><b>Hong Kong, China</b><br>Service Hosting<br>Direct Peering<br>SERNET-IX Participant (East Asia)<br><br>");
-    var marker_kr = L.marker([37.527154, -232.998047]).addTo(map).bindPopup("<br><b>Seoul, South Korea</b><br>Service Hosting<br>Direct Peering<br>SERNET-IX Participant (East Asia)<br><br>");
-    var marker_us1 = L.marker([33.979809, -118.190918]).addTo(map).bindPopup("<br><b>Los Angeles, CA, United States</b><br>Direct Peering<br>SERNET-IX Participant (North America)<br><br>");
-    var marker_de = L.marker([50.092393, -351.298828]).addTo(map).bindPopup("<br><b>Frankfurt, Germany</b><br>Direct Peering<br>SERNET-IX Participant (Europe)<br><br>");
+    var marker_hk = L.marker([22.248429, -245.808105]).addTo(map).bindPopup("<br><b>Hong Kong, China</b><br>Service Hosting<br>Direct Peering<br>SERNET-IX Participant (East Asia)<br>SERNET-IX Direct Connect Point (East Asia)<br><br>");
+    var marker_kr = L.marker([37.527154, -232.998047]).addTo(map).bindPopup("<br><b>Seoul, South Korea</b><br>Service Hosting<br>Direct Peering<br>SERNET-IX Participant (East Asia)<br>SERNET-IX Direct Connect Point (East Asia)<br><br>");
+    var marker_us1 = L.marker([33.979809, -118.190918]).addTo(map).bindPopup("<br><b>Los Angeles, CA, United States</b><br>Direct Peering<br>SERNET-IX Participant (North America)<br>SERNET-IX Direct Connect Point (North America)<br><br>");
+    var marker_de = L.marker([50.092393, -351.298828]).addTo(map).bindPopup("<br><b>Frankfurt, Germany</b><br>Direct Peering<br>SERNET-IX Participant (Europe)<br>SERNET-IX Direct Connect Point (Europe)<br><br>");
 </script>
 
 ### Operation Region
