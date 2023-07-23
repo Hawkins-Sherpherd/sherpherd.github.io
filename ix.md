@@ -62,7 +62,6 @@ Session Establishment: Separate IPv4 & IPv6 session over IXP network address
     * Peering Policy: Only accept participants have existing DN42 node in China Mainland
     * IPv6 Network Block: fd06:7bc4:e3fa:7940::/64
     * IPv4 Network Block: 172.16.128.0/24
-    * Route Server: rs1.cn.ix.sernet.dn42(Dongguan ,Guangdong Province)
     * L2VPN Technology: Zerotier
   
 *  #### East Asia
@@ -71,16 +70,14 @@ Session Establishment: Separate IPv4 & IPv6 session over IXP network address
     * Peering Policy: Open
     * IPv6 Network Block: fd06:7bc4:e3fa:7941::/64
     * IPv4 Network Block: 172.16.129.0/24
-    * Route Servers: rs1.hk.ix.sernet.dn42(Hong Kong), rs2.kr.ix.sernet.dn42(Seoul, South Korea)
     * L2VPN Technology: N2N
 
 *  #### North America
-    * Status: Under Construction
-    * RFS: TBD
+    * Status: Operational
+    * RFS: 2023/07/23
     * Peering Policy: Open
     * IPv6 Network Block: fd06:7bc4:e3fa:7942::/64
     * IPv4 Network Block: 172.16.130.0/24
-    * Route Server: rs1.us.ix.sernet.dn42(Los Angeles, CA, United States)
     * L2VPN Technology: N2N
 
 *  #### Europe
@@ -89,7 +86,6 @@ Session Establishment: Separate IPv4 & IPv6 session over IXP network address
     * Peering Policy: Open
     * IPv6 Network Block: fd06:7bc4:e3fa:7943::/64
     * IPv4 Network Block: 172.16.131.0/24
-    * Route Server: rs1.de.ix.sernet.dn42(Frankfurt, Germany)
     * L2VPN Technology: N2N
 
 ### SERNET-IX 服务协议（The Service Agreement of SERNET-IX）
