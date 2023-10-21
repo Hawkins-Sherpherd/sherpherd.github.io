@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: page_dn42
 title: The Service Agreement of SERNET-IX
 ---
 

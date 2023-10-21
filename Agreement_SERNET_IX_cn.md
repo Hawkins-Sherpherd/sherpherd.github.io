@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: page_dn42
 title: SERNET-IX 服务协议
 ---
 

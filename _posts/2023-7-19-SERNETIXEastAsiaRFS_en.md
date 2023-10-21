@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_dn42
 title: SERNET-IX East Asia Region Ready For Service
 ---
 

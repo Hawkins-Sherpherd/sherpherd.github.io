@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_dn42
 title: SERNET-IX 北美区域已投入服务
 ---
 

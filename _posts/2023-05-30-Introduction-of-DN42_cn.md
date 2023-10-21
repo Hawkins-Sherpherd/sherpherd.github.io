@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_dn42
 title: DN42 介绍
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_dn42
 title: SERNET-IX North America Region Ready For Service
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_dn42
 title: 新节点上线
 ---
 

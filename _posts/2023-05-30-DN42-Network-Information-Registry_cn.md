@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_dn42
 title: 注册 DN42 网络信息
 ---
 

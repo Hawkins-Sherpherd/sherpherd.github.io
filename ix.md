@@ -1,13 +1,14 @@
 ---
-layout: page
+layout: dn42
 title: SERNET-IX
 ref: ix
 order: 2
 ---
 
-# SERNET-IX
+![SERNET](img/sernet-ix-logo-large-alt1.svg)
+
 ---
-SERNET-IX 是在世界范内运作的一组致力于集中 DN42 BGP 会话（而非数据平面）的 IXP 。和传统的 IXP 不同，SERNET-IX 仅对 BGP 会话做集中，而将数据平面交给 P2P 的 L2VPN 技术（如 N2N，Zerotier），令整个互联网成为一台超大号的 IX 交换机。
+SERNET-IX 是在世界范围内运作的一组致力于集中 DN42 BGP 会话（而非数据平面）的 IXP 。和传统的 IXP 不同，SERNET-IX 仅对 BGP 会话做集中，而将数据平面交给 P2P 的 L2VPN 技术（如 N2N，Zerotier），令整个互联网成为一台超大号的 IX 交换机。
 
 SERNET-IX is a group of IXP concentrates DN42 BGP session but not data plane. Different from traditional IXP, SERNET-IX only concentrates BGP sessions. With the P2P L2VPN technology (N2N, Zerotier, etc.), SERNET-IX make whole Internet a big IX switch.
 
