@@ -90,7 +90,7 @@
             {% endif %}
             {% endif %}
             <!-- Post tagline -->
-            {% if page.layout == 'post' or 'post_dn42'%}
+            {% if page.layout == 'post' or page.layout == 'post_dn42'%}
             <h2 class="project-date">
                 <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
                     {% assign date_format = site.cayman-blog.date_format | default: "%b %-d, %Y" %}
