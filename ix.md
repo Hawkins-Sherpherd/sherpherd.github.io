@@ -58,15 +58,15 @@ Session Establishment: Separate IPv4 & IPv6 session over IXP network address
 
 ### Operation Region
 *   #### China Mainland
-    * Status: Under Construction
-    * RFS: TBD
+    * Status: Operational
+    * RFS: 2023/11/13
     * Peering Policy: Only accept participants have existing DN42 node in China Mainland
     * IPv6 Network Block: fd06:7bc4:e3fa:7940::/64
     * IPv4 Network Block: 172.16.128.0/24
     * L2VPN Technology: Zerotier
   
 *  #### East Asia
-    * Status: Operational
+    * Status: Temporary Unavaliable
     * RFS: 2023/07/19
     * Peering Policy: Open
     * IPv6 Network Block: fd06:7bc4:e3fa:7941::/64
@@ -74,7 +74,7 @@ Session Establishment: Separate IPv4 & IPv6 session over IXP network address
     * L2VPN Technology: N2N
 
 *  #### North America
-    * Status: Operational
+    * Status: Temporary Unavaliable
     * RFS: 2023/07/23
     * Peering Policy: Open
     * IPv6 Network Block: fd06:7bc4:e3fa:7942::/64
