@@ -66,7 +66,7 @@ Session Establishment: Separate IPv4 & IPv6 session over IXP network address
     * L2VPN Technology: Zerotier
   
 *  #### East Asia
-    * Status: Temporary Unavaliable
+    * Status: Temporarily Unavailable
     * RFS: 2023/07/19
     * Peering Policy: Open
     * IPv6 Network Block: fd06:7bc4:e3fa:7941::/64
@@ -74,7 +74,7 @@ Session Establishment: Separate IPv4 & IPv6 session over IXP network address
     * L2VPN Technology: N2N
 
 *  #### North America
-    * Status: Temporary Unavaliable
+    * Status: Temporarily Unavailable
     * RFS: 2023/07/23
     * Peering Policy: Open
     * IPv6 Network Block: fd06:7bc4:e3fa:7942::/64
