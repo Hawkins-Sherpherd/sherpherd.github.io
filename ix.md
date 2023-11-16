@@ -63,31 +63,39 @@ Session Establishment: Separate IPv4 & IPv6 session over IXP network address
     * Peering Policy: Only accept participants have existing DN42 node in China Mainland
     * IPv6 Network Block: fd06:7bc4:e3fa:7940::/64
     * IPv4 Network Block: 172.16.128.0/24
-    * L2VPN Technology: Zerotier
+    * Access Method: Zerotier, VM Hosting
   
 *  #### East Asia
-    * Status: Temporarily Unavailable
+    * Status: Operational
     * RFS: 2023/07/19
     * Peering Policy: Open
     * IPv6 Network Block: fd06:7bc4:e3fa:7941::/64
     * IPv4 Network Block: 172.16.129.0/24
-    * L2VPN Technology: N2N
+    * Access Method: Zerotier
 
-*  #### North America
-    * Status: Temporarily Unavailable
-    * RFS: 2023/07/23
+*  #### US East (Formerly North America)
+    * Status: Operational
+    * RFS: 2023/11/16 (2023/07/23)
     * Peering Policy: Open
     * IPv6 Network Block: fd06:7bc4:e3fa:7942::/64
     * IPv4 Network Block: 172.16.130.0/24
-    * L2VPN Technology: N2N
+    * Access Method: Zerotier
 
-*  #### Europe
-    * Status: Under Construction
-    * RFS: TBD
+*  #### US West
+    * Status: Operational
+    * RFS: 2023/11/16
     * Peering Policy: Open
     * IPv6 Network Block: fd06:7bc4:e3fa:7943::/64
     * IPv4 Network Block: 172.16.131.0/24
-    * L2VPN Technology: N2N
+    * Access Method: Zerotier
+
+*  #### Europe
+    * Status: Operational
+    * RFS: 2023/11/16
+    * Peering Policy: Open
+    * IPv6 Network Block: fd06:7bc4:e3fa:7944::/64
+    * IPv4 Network Block: 172.16.132.0/24
+    * Access Method: Zerotier
 
 ### SERNET-IX 服务协议（The Service Agreement of SERNET-IX）
 ---
