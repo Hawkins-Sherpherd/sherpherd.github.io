@@ -21,7 +21,7 @@ title: SERNET-IX 各新旧区域上线
 
 当我接受你的互联请求后，我会发这些信息回来给你：
 
-* Zerotier Network IDZerotier 网络 ID
+* Zerotier 网络 ID
 
 * 分配的 IXP 网络地址
 
