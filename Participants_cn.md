@@ -50,7 +50,6 @@ title: 参与者
         <td>SERNET-IX IPv6 地址</td>
     </tr>
     <tr>
-    <tr>
         <td rowspan = "2">SERNET-IX Route Servers</td>
         <td rowspan = "2">4242422245</td>
         <td>RS1</td>
@@ -62,6 +61,7 @@ title: 参与者
         <td>172.16.129.2</td>
         <td>fd06:7bc4:e3fa:7941::2</td>
     </tr>
+    <tr>
         <td rowspan = "2">SERNET-DN42</td>
         <td rowspan = "2">4242423947</td>
         <td>hk1.sernet.dn42</td>

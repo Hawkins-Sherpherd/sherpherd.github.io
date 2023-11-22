@@ -14,6 +14,18 @@ title: Participants
         <td>SERNET-IX IPv6 Address</td>
     </tr>
     <tr>
+        <td rowspan = "2">SERNET-IX Route Servers</td>
+        <td rowspan = "2">4242422245</td>
+        <td>RS1</td>
+        <td>172.16.128.1</td>
+        <td>fd06:7bc4:e3fa:7940::1</td>
+    </tr>
+    <tr>
+        <td>RS2</td>
+        <td>172.16.128.2</td>
+        <td>fd06:7bc4:e3fa:7940::2</td>
+    </tr>
+    <tr>
         <td rowspan = "2">SERNET-DN42</td>
         <td rowspan = "2">4242423947</td>
         <td>dg1.sernet.dn42</td>
@@ -36,6 +48,18 @@ title: Participants
         <td>Node Identifier</td>
         <td>SERNET-IX IPv4 Address</td>
         <td>SERNET-IX IPv6 Address</td>
+    </tr>
+    <tr>
+        <td rowspan = "2">SERNET-IX Route Servers</td>
+        <td rowspan = "2">4242422245</td>
+        <td>RS1</td>
+        <td>172.16.129.1</td>
+        <td>fd06:7bc4:e3fa:7941::1</td>
+    </tr>
+    <tr>
+        <td>RS2</td>
+        <td>172.16.129.2</td>
+        <td>fd06:7bc4:e3fa:7941::2</td>
     </tr>
     <tr>
         <td rowspan = "2">SERNET-DN42</td>
@@ -62,6 +86,18 @@ title: Participants
         <td>SERNET-IX IPv6 Address</td>
     </tr>
     <tr>
+        <td rowspan = "2">SERNET-IX Route Servers</td>
+        <td rowspan = "2">4242422245</td>
+        <td>RS1</td>
+        <td>172.16.130.1</td>
+        <td>fd06:7bc4:e3fa:7942::1</td>
+    </tr>
+    <tr>
+        <td>RS2</td>
+        <td>172.16.130.2</td>
+        <td>fd06:7bc4:e3fa:7942::2</td>
+    </tr>
+    <tr>
         <td>SERNET-DN42</td>
         <td>4242423947</td>
         <td>us-nyc1.sernet.dn42</td>
@@ -81,6 +117,18 @@ title: Participants
         <td>SERNET-IX IPv6 Address</td>
     </tr>
     <tr>
+        <td rowspan = "2">SERNET-IX Route Servers</td>
+        <td rowspan = "2">4242422245</td>
+        <td>RS1</td>
+        <td>172.16.131.1</td>
+        <td>fd06:7bc4:e3fa:7943::1</td>
+    </tr>
+    <tr>
+        <td>RS2</td>
+        <td>172.16.131.2</td>
+        <td>fd06:7bc4:e3fa:7943::2</td>
+    </tr>
+    <tr>
         <td>SERNET-DN42</td>
         <td>4242423947</td>
         <td>us-lax1.sernet.dn42</td>
@@ -98,6 +146,18 @@ title: Participants
         <td>Node Identifier</td>
         <td>SERNET-IX IPv4 Address</td>
         <td>SERNET-IX IPv6 Address</td>
+    </tr>
+    <tr>
+        <td rowspan = "2">SERNET-IX Route Servers</td>
+        <td rowspan = "2">4242422245</td>
+        <td>RS1</td>
+        <td>172.16.132.1</td>
+        <td>fd06:7bc4:e3fa:7944::1</td>
+    </tr>
+    <tr>
+        <td>RS2</td>
+        <td>172.16.132.2</td>
+        <td>fd06:7bc4:e3fa:7944::2</td>
     </tr>
     <tr>
         <td>SERNET-DN42</td>
