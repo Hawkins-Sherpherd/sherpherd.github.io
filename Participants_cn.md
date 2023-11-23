@@ -37,6 +37,13 @@ title: 参与者
         <td>172.16.128.4</td>
         <td>fd06:7bc4:e3fa:7940::4</td>
     </tr>
+    <tr>
+        <td>KIYOMI-AS</td>
+        <td>4242421350</td>
+        <td>gz-ct.jvav.tech</td>
+        <td>172.16.128.5</td>
+        <td>fd06:7bc4:e3fa:7940::5</td>
+    </tr>
 </table>
 
 ## 东亚
@@ -134,6 +141,13 @@ title: 参与者
         <td>us-lax1.sernet.dn42</td>
         <td>172.16.131.3</td>
         <td>fd06:7bc4:e3fa:7943::3</td>
+    </tr>
+    <tr>
+        <td>KIYOMI-AS</td>
+        <td>4242421350</td>
+        <td>lax.jvav.tech</td>
+        <td>172.16.128.5</td>
+        <td>fd06:7bc4:e3fa:7940::5</td>
     </tr>
 </table>
 

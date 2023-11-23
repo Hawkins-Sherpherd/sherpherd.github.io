@@ -28,7 +28,7 @@ title: Participants
     <tr>
         <td rowspan = "2">SERNET-DN42</td>
         <td rowspan = "2">4242423947</td>
-        <td>dg1.sernet.dn42</td>
+        <td>dg2.sernet.dn42</td>
         <td>172.16.128.3</td>
         <td>fd06:7bc4:e3fa:7940::3</td>
     </tr>
@@ -36,6 +36,13 @@ title: Participants
         <td>sh1.sernet.dn42</td>
         <td>172.16.128.4</td>
         <td>fd06:7bc4:e3fa:7940::4</td>
+    </tr>
+    <tr>
+        <td>KIYOMI-AS</td>
+        <td>4242421350</td>
+        <td>gz-ct.jvav.tech</td>
+        <td>172.16.128.5</td>
+        <td>fd06:7bc4:e3fa:7940::5</td>
     </tr>
 </table>
 
@@ -134,6 +141,13 @@ title: Participants
         <td>us-lax1.sernet.dn42</td>
         <td>172.16.131.3</td>
         <td>fd06:7bc4:e3fa:7943::3</td>
+    </tr>
+    <tr>
+        <td>KIYOMI-AS</td>
+        <td>4242421350</td>
+        <td>lax.jvav.tech</td>
+        <td>172.16.131.5</td>
+        <td>fd06:7bc4:e3fa:7943::5</td>
     </tr>
 </table>
 
