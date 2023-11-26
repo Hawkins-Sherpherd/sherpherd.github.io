@@ -44,6 +44,13 @@ title: Participants
         <td>172.16.128.5</td>
         <td>fd06:7bc4:e3fa:7940::5</td>
     </tr>
+    <tr>
+        <td>MMR-AS</td>
+        <td>4242420839</td>
+        <td>cn.dn42.letcode.shop</td>
+        <td>172.16.128.6</td>
+        <td>fd06:7bc4:e3fa:7940::6</td>
+    </tr>
 </table>
 
 ## East Asia
@@ -148,6 +155,13 @@ title: Participants
         <td>lax.jvav.tech</td>
         <td>172.16.131.5</td>
         <td>fd06:7bc4:e3fa:7943::5</td>
+    </tr>
+    <tr>
+        <td>MMR-AS</td>
+        <td>4242420839</td>
+        <td>us1.dn42.letcode.shop</td>
+        <td>172.16.131.6</td>
+        <td>fd06:7bc4:e3fa:7943::6</td>
     </tr>
 </table>
 
