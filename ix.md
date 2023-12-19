@@ -38,14 +38,32 @@ Supported Communities:
 Session Establishment: Separate IPv4 & IPv6 session over IXP network address
 
 ### Operation Region
-*   #### China Mainland
+*   #### China Mainland A
     * Status: Operational
     * RFS: 2023/11/13
     * Peering Policy: Only accept participants have existing DN42 node in China Mainland
     * IPv6 Network Block: fd06:7bc4:e3fa:7940::/64
     * IPv4 Network Block: 172.16.128.0/24
-    * Access Method: Zerotier, VM Hosting
-  
+    * Access Method: Zerotier, Tinc
+    * Interconnection(s): SERNET-IX China Mainland B
+
+*  #### China Mainland B
+    * Status: Operational
+    * RFS: 2023/12/19
+    * Peering Policy: Only accept participants have existing DN42 node in China Mainland
+    * IPv6 Network Block: fd06:7bc4:e3fa:7946::/64
+    * IPv4 Network Block: 172.16.133.0/24
+    * Access Method: Local Connection
+    * Interconnection(s): SERNET-IX China Mainalnd A
+
+*  #### Hong Kong
+    * Status: Operational
+    * RFS: 2023/12/4
+    * Peering Policy: Open
+    * IPv6 Network Block: fd06:7bc4:e3fa:7945::/64
+    * IPv4 Network Block: 198.18.224.0/24
+    * Access Method: Zerotier, Tinc
+
 *  #### East Asia
     * Status: Operational
     * RFS: 2023/07/19

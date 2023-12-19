@@ -3,7 +3,7 @@ layout: page_dn42
 title: Participants
 ---
 
-## China Mainland
+## China Mainland A/B
 ---
 <table>
     <tr>
@@ -14,23 +14,33 @@ title: Participants
         <td>SERNET-IX IPv6 Address</td>
     </tr>
     <tr>
-        <td rowspan = "2">SERNET-IX Route Servers</td>
-        <td rowspan = "2">4242422245</td>
-        <td>RS1</td>
+        <td rowspan = "4">SERNET-IX Route Servers</td>
+        <td rowspan = "4">4242422245</td>
+        <td>RS1A</td>
         <td>172.16.128.1</td>
         <td>fd06:7bc4:e3fa:7940::1</td>
     </tr>
     <tr>
-        <td>RS2</td>
+        <td>RS2A</td>
         <td>172.16.128.2</td>
         <td>fd06:7bc4:e3fa:7940::2</td>
+    </tr>
+    <tr>
+        <td>RS1B</td>
+        <td>172.16.133.1</td>
+        <td>fd06:7bc4:e3fa:7946::1</td>
+    </tr>
+    <tr>
+        <td>RS2B</td>
+        <td>172.16.133.2</td>
+        <td>fd06:7bc4:e3fa:7946::2</td>
     </tr>
     <tr>
         <td rowspan = "2">SERNET-DN42</td>
         <td rowspan = "2">4242423947</td>
         <td>dg2.sernet.dn42</td>
-        <td>172.16.128.3</td>
-        <td>fd06:7bc4:e3fa:7940::3</td>
+        <td>172.16.133.3</td>
+        <td>fd06:7bc4:e3fa:7946::3</td>
     </tr>
     <tr>
         <td>sh1.sernet.dn42</td>
@@ -50,6 +60,37 @@ title: Participants
         <td>cn.dn42.letcode.shop</td>
         <td>172.16.128.6</td>
         <td>fd06:7bc4:e3fa:7940::6</td>
+    </tr>
+</table>
+
+## 香港
+---
+<table>
+    <tr>
+        <td>Participant Network Name</td>
+        <td>AS Number</td>
+        <td>Node Identifier</td>
+        <td>SERNET-IX IPv4 Address</td>
+        <td>SERNET-IX IPv6 Address</td>
+    </tr>
+    <tr>
+        <td rowspan = "2">SERNET-IX Route Servers</td>
+        <td rowspan = "2">4242422245</td>
+        <td>RS1</td>
+        <td>198.18.224.1</td>
+        <td>fd06:7bc4:e3fa:7945::1</td>
+    </tr>
+    <tr>
+        <td>RS2</td>
+        <td>198.18.224.2</td>
+        <td>fd06:7bc4:e3fa:7945::2</td>
+    </tr>
+    <tr>
+        <td>SERNET-DN42</td>
+        <td>4242423947</td>
+        <td>hk1.sernet.dn42</td>
+        <td>198.18.224.3</td>
+        <td>fd06:7bc4:e3fa:7945::3</td>
     </tr>
 </table>
 
