@@ -92,6 +92,13 @@ title: Participants
         <td>198.18.224.3</td>
         <td>fd06:7bc4:e3fa:7945::3</td>
     </tr>
+    <tr>
+        <td>HAWKINS-NEO-AS</td>
+        <td>4201273947</td>
+        <td>hawkins-neo1-sernet-ix-cn-b</td>
+        <td>172.16.133.5</td>
+        <td>fd06:7bc4:e3fa:7946::5</td>
+    </tr>
 </table>
 
 ## East Asia
