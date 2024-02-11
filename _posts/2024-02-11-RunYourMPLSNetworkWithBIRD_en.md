@@ -32,37 +32,37 @@ In this article, I will make use of official BIRD document to show readers how t
 # Table of Contents
 - [Intro](#intro)
 - [Prerequisites](#prerequisites)
-- [目录](#目录)
-- [1 实验拓扑](#1-实验拓扑)
-  - [1.1 节点配置](#11-节点配置)
-- [2 前置工作](#2-前置工作)
-  - [2.1 启用 MPLS 内核模块](#21-启用-mpls-内核模块)
-  - [2.2 内核参数调整](#22-内核参数调整)
-    - [2.2.1 为 MPLS 接口启用 MPLS 输入](#221-为-mpls-接口启用-mpls-输入)
-  - [2.3 创建 VRF 并为接口分配 VRF](#23-创建-vrf-并为接口分配-vrf)
-    - [2.3.1 调整客户侧接口的 MTU 以避免分片](#231-调整客户侧接口的-mtu-以避免分片)
-  - [2.4 IP 地址和静态路由配置](#24-ip-地址和静态路由配置)
-  - [2.5 安装 BIRD](#25-安装-bird)
-    - [2.5.1 安装编译源码和构建软件包所需软件](#251-安装编译源码和构建软件包所需软件)
-    - [2.5.2 克隆 BIRD 2.14 仓库](#252-克隆-bird-214-仓库)
-    - [2.5.3 构建 BIRD 2.14 软件包](#253-构建-bird-214-软件包)
-- [3 BIRD 配置](#3-bird-配置)
-  - [3.1 基础配置](#31-基础配置)
-    - [3.1.1 配置 Router ID](#311-配置-router-id)
-    - [3.1.2 添加 MPLS Domain 和各种表](#312-添加-mpls-domain-和各种表)
-    - [3.1.3 添加 MPLS 和 VRF 相关协议及配置](#313-添加-mpls-和-vrf-相关协议及配置)
-  - [3.2 配置 BGP](#32-配置-bgp)
-  - [3.3 配置 MPLS L3VPN 与 VRF 实例之间的绑定](#33-配置-mpls-l3vpn-与-vrf-实例之间的绑定)
-  - [3.4 完整的 BIRD 配置文件](#34-完整的-bird-配置文件)
+- [Table of Contents](#table-of-contents)
+- [1 Lab Topo](#1-lab-topo)
+  - [1.1 Node Specs](#11-node-specs)
+- [2 Preliminary Work](#2-preliminary-work)
+  - [2.1 Enable MPLS Kernel Module](#21-enable-mpls-kernel-module)
+  - [2.2 Kernel Parameter Adjustment](#22-kernel-parameter-adjustment)
+    - [2.2.1 Enable MPLS Input on MPLS Port](#221-enable-mpls-input-on-mpls-port)
+  - [2.3 Create VRF and assign VRF for port](#23-create-vrf-and-assign-vrf-for-port)
+    - [2.3.1 Adjust Client-faced Port MTU to Avoid Fragmentation](#231-adjust-client-faced-port-mtu-to-avoid-fragmentation)
+  - [2.4 IP Address and Static Route Configuration](#24-ip-address-and-static-route-configuration)
+  - [2.5 Installing BIRD](#25-installing-bird)
+    - [2.5.1 Install Compiling and Building Dependencies](#251-install-compiling-and-building-dependencies)
+    - [2.5.2 Clone BIRD 2.14 Repo](#252-clone-bird-214-repo)
+    - [2.5.3 Build Software Package of BIRD 2.14](#253-build-software-package-of-bird-214)
+- [3 BIRD Configuration](#3-bird-configuration)
+  - [3.1 Basic Setup](#31-basic-setup)
+    - [3.1.1 Router ID](#311-router-id)
+    - [3.1.2 Adding MPLS Domain and Tables](#312-adding-mpls-domain-and-tables)
+    - [3.1.3 Adding MPLS and VRF Related Protocol and Configuration](#313-adding-mpls-and-vrf-related-protocol-and-configuration)
+  - [3.2 BGP Configuration](#32-bgp-configuration)
+  - [3.3 Setup Binding between MPLS L3VPN and VRF Instance](#33-setup-binding-between-mpls-l3vpn-and-vrf-instance)
+  - [3.4 Complete BIRD Configuration File](#34-complete-bird-configuration-file)
     - [3.4.1 R1](#341-r1)
     - [3.4.2 R2](#342-r2)
     - [3.4.3 R3](#343-r3)
-- [4 验证](#4-验证)
-  - [4.1 检查 VPNv4 路由表](#41-检查-vpnv4-路由表)
-  - [4.2 检查默认 IPv4 路由表](#42-检查默认-ipv4-路由表)
-  - [4.3 检查 VRF 路由表](#43-检查-vrf-路由表)
-  - [4.4 检查 PC1 和 PC2 之间的连接性](#44-检查-pc1-和-pc2-之间的连接性)
-- [5 引用](#5-引用)
+- [4 Verification](#4-verification)
+  - [4.1 Check VPNv4 Table](#41-check-vpnv4-table)
+  - [4.2 Check Default IPv4 Table](#42-check-default-ipv4-table)
+  - [4.3 Check VRF IPv4 Table](#43-check-vrf-ipv4-table)
+  - [4.4 Check connectivity between PC1 and PC2](#44-check-connectivity-between-pc1-and-pc2)
+- [5 Reference](#5-reference)
 
 # 1 Lab Topo
 ```
@@ -597,8 +597,8 @@ protocol bgp r2 {
 
 ```
 
-# 4 验证
-## 4.1 检查 VPNv4 路由表
+# 4 Verification
+## 4.1 Check VPNv4 Table
 R1：
 ```
 bird> show route table bgp_vpn4
@@ -619,7 +619,7 @@ Table bgp_vpn4:
         via 203.0.113.3 on ens19 mpls 1003
 bird>
 ```
-## 4.2 检查默认 IPv4 路由表
+## 4.2 Check Default IPv4 Table
 R1：
 ```
 bird> show route table master4
@@ -638,7 +638,7 @@ Table master4:
         via 203.0.113.3 on ens19 mpls 1001
 bird>
 ```
-## 4.3 检查 VRF 路由表
+## 4.3 Check VRF IPv4 Table
 R1：
 ```
 bird> show route table vrf_blue4
@@ -657,7 +657,7 @@ Table vrf_blue4:
 192.168.2.0/24       unreachable [static2 22:54:38.777] * (200)
 bird>
 ```
-## 4.4 检查 PC1 和 PC2 之间的连接性
+## 4.4 Check connectivity between PC1 and PC2
 PC1：
 ```
 root@pc1:~# ping -c 4 192.168.2.2
@@ -699,7 +699,7 @@ traceroute to 192.168.1.2 (192.168.1.2), 30 hops max, 60 byte packets
 root@pc2:~#
 ```
 
-# 5 引用
+# 5 Reference
 <span id="c1">1. BIRD Team. (2023, October 7). _News Archive_. bird.network.cz. [https://bird.network.cz/?o_news/](https://bird.network.cz/?o_news/)</span>
 
 <span id="c2">2. BIRD Team. (2023, October 7). BIRD 2.0 User’s Guide. _MPLS_, 9-10. [https://bird.network.cz/download/bird-doc-2.14.tar.gz](https://bird.network.cz/download/bird-doc-2.14.tar.gz)</span>
