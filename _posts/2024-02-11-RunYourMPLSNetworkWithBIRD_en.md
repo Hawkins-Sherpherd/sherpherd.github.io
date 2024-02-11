@@ -1,14 +1,14 @@
 ---
 layout: post_dn42
-title: 用 BIRD 运行你的 MPLS 网络
+title: Run your MPLS network with BIRD
 ---
 
-# 引言
-目前，网络上大多数在 Linux 上跑 MPLS 的教程是基于 FRR 的。因为在很长一段时间里，FRR 及其前身 Quagga 是在 Linux 上构建 MPLS 网络的不二之选，因为它们提供行业标准的 MPLS 相关协议实现（LDP，BGP-LU，BGP IPv4/IPv6 MPLS L3VPN，诸如此类），而彼时大多数其它路由套件甚至拿不出可用的 MPLS 支持。
+# Intro
+Now, most tutorials about running MPLS on Linux are based on FRR. Because in a long time, FRR and its predecessor Quagga are the only choices who provide industry standard MPLS  related protocol (LDP, BGP-LU, BGP IPv4/IPv6 MPLS L3VPN, etc.) implementation, by the time, most of other routing software don't even have availiable MPLS support.
 
-在 DN42 中为多数人所使用的 BIRD 也在其最新版本（2.14）中添加了对 MPLS 的可用支持，现在 BIRD 也有可以感知 MPLS 并产生带 MPLS 标签的路由协议了。（尽管还是没有 LDP）[<sup>[1]</sup>](#c1)
+The most popular routing software among DN42 users, BIRD, has added availiable MPLS support in its newest version (2.14), now BIRD has MPLS-aware, labeled route producing routing protocol, too. (No LDP still though) [<sup>[1]</sup>](#c1)
 
-在最新的 BIRD 2.0 用户指南中，新增了 MPLS 功能相关章节[<sup>[2]</sup>](#c2)，其节选内容如下：
+The newest BIRD 2.0 User Guide has added MPLS function related chapter[<sup>[2]</sup>](#c2), this is an excerpt:
 
 > In BIRD, the whole process generally works this way: A MPLS-aware routing protocol (say BGP) receives
 routing information including remote label. It produces a route with attribute mpls policy (p. 30) specifying
@@ -21,17 +21,17 @@ There are three important concepts for MPLS in BIRD: MPLS domains, MPLS tables a
 MPLS domain represents an independent label space, all MPLS-aware protocols are associated with some MPLS domain. It is responsible for label management, handling label allocation requests from MPLS-aware protocols. MPLS table is just a routing table for MPLS routes. Routers usually have one MPLS domain and one MPLS table, with Kernel protocol to export MPLS routes into kernel FIB. <br> 
 MPLS channels make protocols MPLS-aware, they are responsible for keeping track of active FECs (and corresponding allocated labels), selecting FECs / local labels for labeled routes, and maintaining correspondence between labeled routes and MPLS routes.
 
-如上文所述，目前 BIRD 的 BGP 实现是 MPLS 感知的了，可以用于分配和分发 MPLS 标签路由。
+As mentioned above, the current BGP implementation of BIRD is MPLS-awared, can be used to assign and distribute MPLS labeled route.
 
-在这篇文章中，我将结合 BIRD 的官方文档为读者展示一个简单的使用 BIRD 运行的 MPLS VPN 网络实例的构建。
+In this article, I will make use of official BIRD document to show readers how to construct a simple MPLS VPN network running with BIRD.
 
-# 前置要求
-* 除非有特别配置，你的节点必须是有完全独立运行的内核的（物理机，KVM 虚拟化，诸如此类），如此方可启用 MPLS 内核模块。
-* 如果你使用 Vultr 的 VPS，由于未知原因，Vultr 自带的系统镜像对 MPLS 的支持有问题，在部署后请用官方 ISO 再装一遍你想要的操作系统。
+# Prerequisites
+* Unless specific configuration, your node must running completely independent kernel (dedicated server, KVM virtualization, etc.), so that you can enable MPLS kernel module.
+* If you using Vultr VPS, due to unknown reason, Vultr integrated system image has some trouble with MPLS, please reinstall your system with official ISO after deployment.
 
-# 目录
-- [引言](#引言)
-- [前置要求](#前置要求)
+# Table of Contents
+- [Intro](#intro)
+- [Prerequisites](#prerequisites)
 - [目录](#目录)
 - [1 实验拓扑](#1-实验拓扑)
   - [1.1 节点配置](#11-节点配置)
@@ -49,20 +49,22 @@ MPLS channels make protocols MPLS-aware, they are responsible for keeping track 
 - [3 BIRD 配置](#3-bird-配置)
   - [3.1 基础配置](#31-基础配置)
     - [3.1.1 配置 Router ID](#311-配置-router-id)
-    - [3.1.2 配置](#312-配置)
+    - [3.1.2 添加 MPLS Domain 和各种表](#312-添加-mpls-domain-和各种表)
+    - [3.1.3 添加 MPLS 和 VRF 相关协议及配置](#313-添加-mpls-和-vrf-相关协议及配置)
   - [3.2 配置 BGP](#32-配置-bgp)
-  - [3.3 配置 MPLS L3VPN](#33-配置-mpls-l3vpn)
+  - [3.3 配置 MPLS L3VPN 与 VRF 实例之间的绑定](#33-配置-mpls-l3vpn-与-vrf-实例之间的绑定)
   - [3.4 完整的 BIRD 配置文件](#34-完整的-bird-配置文件)
     - [3.4.1 R1](#341-r1)
     - [3.4.2 R2](#342-r2)
     - [3.4.3 R3](#343-r3)
 - [4 验证](#4-验证)
-  - [4.1 检查 MPLS L3VPN 路由表](#41-检查-mpls-l3vpn-路由表)
-  - [4.2 检查 PC1 和 PC2 之间的连接性](#42-检查-pc1-和-pc2-之间的连接性)
-  - [4.3 检查默认 IPv4 路由表](#43-检查默认-ipv4-路由表)
+  - [4.1 检查 VPNv4 路由表](#41-检查-vpnv4-路由表)
+  - [4.2 检查默认 IPv4 路由表](#42-检查默认-ipv4-路由表)
+  - [4.3 检查 VRF 路由表](#43-检查-vrf-路由表)
+  - [4.4 检查 PC1 和 PC2 之间的连接性](#44-检查-pc1-和-pc2-之间的连接性)
 - [5 引用](#5-引用)
 
-# 1 实验拓扑
+# 1 Lab Topo
 ```
 
                  ----------------------------------------------------------
@@ -102,21 +104,21 @@ MPLS channels make protocols MPLS-aware, they are responsible for keeping track 
 
 ```
 
-## 1.1 节点配置
-PC1、R1、R2 和 PC2 均运行 Debian 12 操作系统。R1 和 R2 均安装本文写成时最新版本的 BIRD ，即 BIRD 2.14。
+## 1.1 Node Specs
+PC1, R1, R2 and PC2 all running Debian 12. R1 and R2 both installed newest version BIRD by the time I finished this, the BIRD 2.14.
 
-**注意：记得为 R1，R2 和 R3 添加第三个接口用于访问互联网下载 BIRD 安装包或源码和编译安装所需软件**
+**Notice: Remember to add third port for R1, R2 and R3 to make them able to access Internet for downloading BIRD software package or compiling dependencies**
 
-# 2 前置工作
-## 2.1 启用 MPLS 内核模块
-在 R1 和 R2 下以 root 身份运行如下命令：
+# 2 Preliminary Work
+## 2.1 Enable MPLS Kernel Module
+Run these command on R1 and R2 with root permission:
 ```
 modprobe mpls_router
 modprobe mpls_iptunnel
 modprobe mpls_gso
 ```
-## 2.2 内核参数调整
-在 R1 ，R2 和 R2 下以 root 身份运行如下命令以调整 IP 路由及 MPLS 相关内核参数，使之能正常工作[<sup>[3]</sup>](#c3)：
+## 2.2 Kernel Parameter Adjustment
+Run these command on R1, R2 and R3 with root permission to adjust parameters related to IP routing and MPLS, make them able to work[<sup>[3]</sup>](#c3):
 ```
 cat >/etc/sysctl.d/90-mpls-router.conf <<EOF
 net.ipv4.ip_forward=1
@@ -129,121 +131,119 @@ net.mpls.conf.lo.input=1
 EOF
 sysctl -p /etc/sysctl.d/90-mpls-router.conf
 ```
-### 2.2.1 为 MPLS 接口启用 MPLS 输入
-每个需要传输 MPLS 流量的接口都要启用 MPLS 输入，在 R1 和 R2 下以 root 身份运行如下命令以启用它们的 ens19 接口的 MPLS 输入：
+### 2.2.1 Enable MPLS Input on MPLS Port
+Every port transits MPLS traffic need to enable MPLS input, run these command on R1 and R2 with root permission to enable MPLS input for their port ens19:
 ```
 sysctl -w net.mpls.conf.ens19.input=1
 ```
-在 R3 上如法炮制：
+So do on R3:
 ```
 sysctl -w net.mpls.conf.ens19.input=1
 sysctl -w net.mpls.conf.ens20.input=1
 ```
-**注意：每个需要传输 MPLS 流量的接口都需要这样的配置**
-## 2.3 创建 VRF 并为接口分配 VRF
-在 R1 和 R2 下以 root 身份运行如下命令以创建名为 blue 的 VRF 接口：
+**Notice: Every MPLS traffic transiting port need this configuration**
+## 2.3 Create VRF and assign VRF for port
+Run these command on R1 and R2 with root permission to create a VRF interface named "blue":
 ```
 ip link add blue type vrf table 500
 ip link set blue up
 ```
-在 R1 和 R2 下以 root 身份运行如下命令以将 ens20 分配至 VRF blue 并启用接口：
+Run these command on R1 and R2 with root permission to assign ens20 to VRF blue then enable it:
 ```
 ip link set ens20 master blue up
 ```
-### 2.3.1 调整客户侧接口的 MTU 以避免分片
-在实际操作中，提高核心网络链路的 MTU 总比调低客户侧接口的 MTU 难，而使用 MPLS 会有额外的报文头开销（每个标签占用4字节），这使得大包可能在进入 MPLS 网络时被分片。为了避免分片，我们要适当调低客户侧接口的 MTU 。
+### 2.3.1 Adjust Client-faced Port MTU to Avoid Fragmentation
+In practice, increasing MTU of core network link is always harder than decreasing client-faced port MTU, and using MPLS incur additional packet header overhead (4 bytes per label), this made large packet may get fragmented when entering MPLS network. To avoid this, we need to approviately decrease the MTU of client-faced port.
 
-在 PC1 和 PC2 下以 root 身份运行如下命令以调整 eth0 的 MTU 并启用接口：
+Run these command on PC1 and PC2 with root permission to adjust MTU of eth0 then enable it:
 ```
 ip link set eth0 mtu 1492 up
 ```
-在 R1 和 R2 下以 root 身份运行如下命令以调整 ens20 的 MTU：
+Run these command on R1 and R2 with root permission to adjust MTU of ens20:
 ```
 ip link set ens20 mtu 1492
 ```
-## 2.4 IP 地址和静态路由配置
-在如下节点以 root 身份执行对应的命令以完成配置。
-
-R1：
+## 2.4 IP Address and Static Route Configuration
+Run command with root permission on nodes below to done this.
+R1:
 ```
 ip addr add 203.0.113.1/32 dev lo
 ip addr add 203.0.113.1/32 dev ens19 peer 203.0.113.3/32
 ip addr add 192.168.1.1/24 dev ens20
 ```
-R2：
+R2:
 ```
 ip addr add 203.0.113.2/32 dev lo
 ip addr add 203.0.113.2/32 dev ens19 peer 203.0.113.3/32
 ip addr add 192.168.2.1/24 dev ens20
 ```
-R3：
+R3:
 ```
 ip addr add 203.0.113.3/32 dev lo
 ip addr add 203.0.113.3/32 dev ens19 peer 203.0.113.1/32
 ip addr add 203.0.113.3/32 dev ens20 peer 203.0.113.2/32
 ```
-PC1：
+PC1:
 ```
 ip addr add 192.168.1.2/24 dev eth0
 ip route add 192.168.2.0/24 via 192.168.1.1
 ```
-PC1：
+PC1:
 ```
 ip addr add 192.168.2.2/24 dev eth0
 ip route add 192.168.1.0/24 via 192.168.2.1
 ```
-## 2.5 安装 BIRD
-只是从源码编译安装的 BIRD 是不完全的，缺失系统服务文件、文档之类的内容。
+## 2.5 Installing BIRD
+The compile installed BIRD is incomplete, it lacks system service file, docs, etc.
 
-想要完整的 BIRD 就要构建软件包然后安装。
+If you want complete BIRD, you have to build software package then install from it.
 
-如果想要省去自己构建软件包的过程，你可以在这里下载到我预先构建好的 deb 软件包：
+If you don't want build yourself, you can download them here (deb package):
 
 [https://drive.google.com/drive/folders/1DUaFJgZGsEXI-RlreNxCG9mnERiAkIVB?usp=drive_link](https://drive.google.com/drive/folders/1DUaFJgZGsEXI-RlreNxCG9mnERiAkIVB?usp=drive_link)
 
-如提示有依赖缺失，遵照提示安装缺失软件包即可。
+If hints dependency miss, follow the hint to install missed dependency.
 
-如果想要自己构建 BIRD 2.14 的软件包，请阅读下文。
+If you want to build it yourself, please read the rest of this chapter.
 
-准备一台同样运行 Debian 12 的编译机器，配置不用太高，我的是4核4GB内存，然后在上面进行下文所示的操作。
+Prepare a compile node running Debian 12, no need of high spec, mine got 4 cores and 4 gigs of RAM, then do as follow.
 
-### 2.5.1 安装编译源码和构建软件包所需软件
+### 2.5.1 Install Compiling and Building Dependencies
 ```
 apt install -y git linuxdoc-tools autoconf build-essential libssh-dev libreadline-dev libncurses-dev flex bison checkinstall debhelper docbook-xsl libssh-gcrypt-dev quilt xsltproc linuxdoc-tools-latex texlive-latex-extra
 ```
 ```
 pipx install apkg
 ```
-### 2.5.2 克隆 BIRD 2.14 仓库
-克隆 BIRD 2.14 的仓库：
+### 2.5.2 Clone BIRD 2.14 Repo
 ```
 git clone --branch v2.14 https://gitlab.nic.cz/labs/bird.git
 ```
-### 2.5.3 构建 BIRD 2.14 软件包
-进入 bird 然后执行如下命令：
+### 2.5.3 Build Software Package of BIRD 2.14
+Enter "bird" then run command below:
 ```
 apkg build
 ```
-在构建完成后，apkg 会有类似的提示：
+Once finished, apkg gives hint like this:
 ```
 built 3 packages in: pkg/pkgs/debian-12/bird2_2.14.1707409394.0e1fbaa5-cznic.1
 ```
-构建好的软件包就放在提示所示的目录中，自行取用。
+The built software package is located in the location the hint mentioned, make use of it.
 
-# 3 BIRD 配置
-由于 BIRD 目前尚没有通过 IGP 拓扑分发 MPLS 标签路由的实现，我们使用 BGP-LU 分发 MPLS 标签路由。
-## 3.1 基础配置
-### 3.1.1 配置 Router ID
-配置一个静态 Router ID 总不是坏事。
+# 3 BIRD Configuration
+Currently BIRD don't have implementation of distributing MPLS labeled route through IGP topo, so we use BGP-LU to do that.
+## 3.1 Basic Setup
+### 3.1.1 Router ID
+Having a static Router ID is always not a bad thing.
 
-R1：
+R1:
 ```
 router id 203.0.113.1;
 ```
-R2、R3 如法炮制。
+So do on R2 and R3.
 
-### 3.1.2 添加 MPLS Domain 和各种表
-此处 R1 配置，其它节点如法炮制：
+### 3.1.2 Adding MPLS Domain and Tables
+Use R1 as example, so do on other nodes:
 ```
 mpls domain mpls_dom;
 
@@ -251,11 +251,11 @@ mpls table bgp_mpls_table;
 
 vpn4 table bgp_vpn4;
 
-ipv4 table vrf_blue4;
+ipv4 table vrf_blue4; # This one is no need on R3
 ```
 
-### 3.1.3 添加 MPLS 和 VRF 相关协议及配置
-以 R1 配置为例：
+### 3.1.3 Adding MPLS and VRF Related Protocol and Configuration
+Use R1 as example:
 ```
 protocol kernel krt_mpls {
 	mpls {
@@ -264,7 +264,7 @@ protocol kernel krt_mpls {
 	};
 }
 
-protocol kernel vrf_blue_4 { # R3 无需添加该协议，因为它不运行任何 VRF 实例
+protocol kernel vrf_blue_4 { # No need for R3, since it doesn't run any VRF instance
 	vrf "blue";
 	ipv4 {
 		table vrf_blue4;
@@ -276,28 +276,28 @@ protocol kernel vrf_blue_4 { # R3 无需添加该协议，因为它不运行任�
 
 protocol static {
 	ipv4;
-	route 203.0.113.1/32 reject; # 静态注入直连路由，用于在 BGP 中发布
+	route 203.0.113.1/32 reject; # Inject direct route through static, for advertising it in BGP
 }
 
-protocol static {                # 同样地，R3 无需添加
+protocol static {                # Same, no need for R3
 	ipv4 { table vrf_blue4; };
 	route 192.168.1.0/24 reject;
 }
 ```
 
-## 3.2 配置 BGP
-以 R1 的配置为例：
+## 3.2 BGP Configuration
+Use R1 as example:
 ```
 protocol bgp r3 {
 	local 203.0.113.1 as 64512;
 	neighbor 203.0.113.3 as 64514;
 	confederation 100;
 	confederation member;
-	ipv4 mpls { # 启用 IPv4 Labeled Unicast 通道，打通 MPLS 节点之间的 MPLS 可达性
+	ipv4 mpls { # Enable IPv4 Labeled Unicast channel, to enable MPLS reachability between MPLS nodes
 		import all;
 		export all;
 	};
-	vpn4 mpls { # 启用 VPNv4 通道，承载 IPv4 VPN 路由
+	vpn4 mpls { # Enable VPNv4 channel, carring IPv4 VPN route
 		table bgp_vpn4;
 		import all;
 		export all;
@@ -308,24 +308,24 @@ protocol bgp r3 {
 }
 ```
 
-## 3.3 配置 MPLS L3VPN 与 VRF 实例之间的绑定
-R3 无需这些配置，因为 R3 不运行任何 VRF 实例。
+## 3.3 Setup Binding between MPLS L3VPN and VRF Instance
+No need for R3, it doesn't run any VRF instance.
 
-以 R1 的配置为例：
+Use R1 as example:
 ```
 protocol l3vpn vpn_blue4 {
 	vrf "blue";
-	ipv4 { table vrf_blue4; }; # 绑定 VRF 路由表
-	vpn4 { table bgp_vpn4; }; # 绑定 VPNv4 路由表
+	ipv4 { table vrf_blue4; }; # # Binding VRF Table
+	vpn4 { table bgp_vpn4; }; # Binding VPNv4 Table
 	mpls { label policy vrf; };
 
 	rd 203.0.113.1:500;
-	import target [(rt,100,500)]; # 定义从绑定的 VPNv4 路由表里取用的路由所有的 RT
-	export target [(rt,100,500)]; # 定义输出到绑定的 VPNv4 路由表里的本 VRF 实例路由附加的 RT
+	import target [(rt,100,500)]; # Define RT the desired route import from binded VPNv4 to VRF have
+	export target [(rt,100,500)]; # Define RT the route export from VRF to binded VPNv4 will be attached
 }
 ```
 
-## 3.4 完整的 BIRD 配置文件
+## 3.4 Complete BIRD Configuration File
 ### 3.4.1 R1
 ```
 log syslog all;
