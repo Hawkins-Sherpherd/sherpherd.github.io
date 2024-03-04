@@ -11,3 +11,5 @@ layout: home
 欢迎来到我的主页！
 
 Welcome to my homepage!
+
+爱发电主页：[https://afdian.net/a/haksrpd](https://afdian.net/a/haksrpd)
