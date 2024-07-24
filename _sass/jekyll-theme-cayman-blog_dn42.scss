@@ -182,7 +182,7 @@ a {
 .main-content {
   word-wrap: break-word;
 
-  :first-child {
+  &:not(#map) > :first-child:not(#map):not(#map *) {
     margin-top: 0;
   }
 
