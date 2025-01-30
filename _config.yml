@@ -3,7 +3,7 @@ title: Hawkins Sherpherd 的主页
 show_downloads: False
 
 baseurl: "" # change this to the subpath of your site, e.g. /blog. Leave it empty if you don't need it.
-url: "https://blog.sherpherd.top" # change this to the base hostname & protocol for your site
+url: "https://blog.sherpherd.net" # change this to the base hostname & protocol for your site
 
 
 google_analytics:
