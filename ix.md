@@ -16,7 +16,7 @@ SERNET-IX is a group of IXP concentrates DN42 BGP session but not data plane. Di
 
 Due to the limit of resource, all Route Server Instance in all regions will run on those nodes which have sufficient resources, don't worry, the latency to Route Server does not affect latency to other participants' routers.
 
-[Maintenance information of SERNET-IX](https://maintenance.sherpherd.top)
+[Maintenance information of SERNET-IX](https://maintenance.sherpherd.net)
 
 ### 加入 SERNET-IX 的好处（The Benifit of joining in SERNET-IX）
 ---
